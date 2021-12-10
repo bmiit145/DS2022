@@ -35,7 +35,7 @@ public:
         cout << endl;
         cout << "Id :\t" << id <<endl;
         cout << "Name :\t" << name << endl;
-        cout << "mark  :\t" << mark << endl;
+        cout << "mark :\t" << mark << endl;
         cout << endl;
     }
 };
