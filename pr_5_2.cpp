@@ -68,7 +68,7 @@ public:
         }
         else
         {
-            if (front < rear)
+            if (front <= rear)
             {
                 for (int i = front; i <= rear; i++)
                 {
