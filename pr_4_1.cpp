@@ -46,8 +46,9 @@ public:
             if (top >= size)
             {
                 cout << "Stack is Full (Overflow)";
+            }else{
                 int freespace  = size - top;
-                cout << ""
+                cout << "Available Space \t" <<  freespace;
             }
             
         }
@@ -90,7 +91,7 @@ int main()
             break;
         case 3:
             cout << "Peep Of Stack\n";
-
+            s.peep();
             break;
         case 4:
             s.display();
