@@ -4,47 +4,42 @@ using namespace std;
 class Student{
     int id;
     string name;
-    string email;
-    // Student(){
-    //     id = 0;
-    //     name = "";
-    //     email = "";
-    // }
+    float mark;
+
 public:
+    Student(){
+         id = 0;
+         name = "";
+         mark = 0;
+    }
+    Student(int s_id , string s_name , float s_mark){
+        id = s_id;
+        name = s_name;
+        mark = s_mark;
+    }
+    Student(Student &s){
+        id = s.id;
+        name = s.name;
+        mark = s.mark;
+    }
+
     void getdata(){
         cout << "Enter the id :";
         cin >> id;
         cout << "Enter the name : ";
         cin >> name;
-        cout << "Enter the email id : ";
-        cin >> email;
+        cout << "Enter the mark id : ";
+        cin >> mark;
     }
     void display(){
         cout << endl;
         cout << "Id :\t" << id <<endl;
         cout << "Name :\t" << name << endl;
-        cout << "Email Address :\t" << email << endl;
+        cout << "mark Address :\t" << mark << endl;
         cout << endl;
     }
 };
 
-// class Student_stack{
-//     int top=0;
-//     Student stack[size];
-//     public:
-//     Student_stack(){
-//         top = 0;
-//         for (int i = 0; i < size; i++)
-//         {
-//             stack[i] = new Student();
-//         }
-        
-//     }
-
-//     void pop(){
-
-//     }
-// };
 
 // program to stack
 class StudentStack
@@ -58,7 +53,7 @@ public:
     {
         top = 0;
     }
-    void push(Student item)
+    void push(Student &item)
     {
         if (top >= size)
         {
@@ -66,19 +61,19 @@ public:
         }
         else
         {
-            top++;
-            stack[top] = item;
+            stack[++top] = item;
         }
     }
     Student pop()
     {
+        Student item;
         if (top <= 0)
         {
             cout << "Stack is Underflow\n";
         }
         else
         {
-            Student item =  stack[top];
+            item =  stack[top];
             top--;
             return item;
         }
@@ -112,7 +107,7 @@ public:
 
 int main()
 {
-    Student s1;
+    
     StudentStack s;
     int opt, item;
     char ch;
@@ -125,31 +120,33 @@ int main()
         cout << "\t5.Exit\t"<<endl;
         cout << "Enter the choich :\t";
         cin >> opt;
+        Student s1;
         switch (opt)
         {
-        case 1:
-            cout << "Enter the Student Deatils \t";
-            s1.getdata();
-            s.push(s1);
-            break;
-        // case 2:
-        //     Student item1 = s.pop();
-        //     // cout << "Stack item is \t" << item << endl;
-        //     item1.display();
-        //     break;
-        case 3:
-            cout << "Peep Of Stack\n";
-            s.peep();
-            break;
-        case 4:
-            s.display();
-            break;
-        case 5:
-            return 0;
-            break;
-        default:
-            cout <<endl<< "\t Invaild Input\t\n\t Try Again\t\n" <<endl;
-            break;
+            case 1:
+                
+                cout << "Enter the Student Deatils \t\n";
+                s1.getdata();
+                s.push(s1);
+                break;
+            case 2:
+                s1 = s.pop();
+                // cout << "Stack item is \t" << item << endl;
+                s1.display();
+                break;
+            case 3:
+                cout << "Peep Of Stack\n";
+                s.peep();
+                break;
+            case 4:
+                s.display();
+                break;
+            case 5:
+                return 0;
+                break;
+            default:
+                //cout <<endl<< "\t Invaild Input\t\n\t Try Again\t\n" <<endl;
+                break;
         }
         cout <<endl << "Do you want to continoues (Y|N)\t";
         cin >> ch;
