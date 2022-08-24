@@ -28,14 +28,14 @@ public:
         cin >> id;
         cout << "Enter the name : ";
         cin >> name;
-        cout << "Enter the mark id : ";
+        cout << "Enter the mark : ";
         cin >> mark;
     }
     void display(){
         cout << endl;
         cout << "Id :\t" << id <<endl;
         cout << "Name :\t" << name << endl;
-        cout << "mark Address :\t" << mark << endl;
+        cout << "mark  :\t" << mark << endl;
         cout << endl;
     }
 };
@@ -53,7 +53,7 @@ public:
     {
         top = 0;
     }
-    void push(Student &item)
+    void push(Student item)
     {
         if (top >= size)
         {
