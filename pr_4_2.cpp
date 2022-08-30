@@ -145,7 +145,7 @@ int main()
                 return 0;
                 break;
             default:
-                //cout <<endl<< "\t Invaild Input\t\n\t Try Again\t\n" <<endl;
+                cout <<endl<< "\t Invaild Input\t\n\t Try Again\t\n" <<endl;
                 break;
         }
         cout <<endl << "Do you want to continoues (Y|N)\t";
