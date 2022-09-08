@@ -4,7 +4,7 @@ using namespace std;
 class Queue
 {
 private:
-    int SQ[length];
+    int SQ[length+1];
     int front, rear, item;
 
 public:
@@ -42,6 +42,7 @@ public:
             {
                 item = SQ[front];
                 front = 0;
+                rear = 0;
             }
             else
             {
