@@ -4,7 +4,7 @@ using namespace std;
 class Queue
 {
 private:
-    int SQ[length + 1];
+    int CQ[length + 1];
     int front, rear;
 
 public:
@@ -15,19 +15,25 @@ public:
 
     void enqueue(int item)
     {
-        if (rear == length)
+        if (front == 0)
         {
-            cout << "\n\tQueue is full\t\n";
+            front = 1;
+            rear = 1;
+            CQ[rear] = item;
         }
         else
         {
-            if (front == 0 & rear == 0)
-            {
-                front = 1;
-            }
+            int next = (rear % length) + 1;
 
-            rear++;
-            SQ[rear] = item;
+            if (next == front)
+            {
+                cout << "\tQueue is Full\t" << endl;
+            }
+            else
+            {
+                rear = next;
+                CQ[rear] = item;
+            }
         }
     }
 
@@ -39,7 +45,7 @@ public:
         }
         else
         {
-            int item = SQ[front];
+            int item = CQ[front];
             if (front == rear)
             {
                 front = 0;
@@ -47,7 +53,8 @@ public:
             }
             else
             {
-                front++;
+                int next = (front % length) + 1;
+                front = next;
             }
             cout << "item is \t" << item << endl;
         }
@@ -61,9 +68,24 @@ public:
         }
         else
         {
-            for (int i = front; i <= rear; i++)
+            if (front < rear)
             {
-                cout << "|" << SQ[i] << "|\n";
+                for (int i = front; i <= rear; i++)
+                {
+                    cout << "|" << CQ[i] << "|\n";
+                }
+            }else{
+                for (int i = front; i <= length; i++)
+                {
+                    cout << "|" << CQ[i] << "|\n";
+                }
+                for (int i = 1; i <= rear; i++)
+                {
+                    cout << "|" << CQ[i] << "|\n";
+                   
+                }
+                
+                
             }
         }
     }
