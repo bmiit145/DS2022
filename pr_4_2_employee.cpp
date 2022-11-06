@@ -131,7 +131,7 @@ int main()
         cout << "\t1.push\t\n";
         cout << "\t2.pop\t\n";
         cout << "\t3.peep\t\n";
-        cout << "\t4.diplay\t\n";
+        cout << "\t4.display\t\n";
         cout << "\t5.Exit\t\n";
 
         cout << "Enter the your choice :\t";
