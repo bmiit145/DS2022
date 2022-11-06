@@ -4,7 +4,7 @@ using namespace std;
 class Queue
 {
 private:
-    int DQ[length];
+    int DQ[length + 1];
     int front, rear;
 
 public:
@@ -16,20 +16,19 @@ public:
     void enqueue_front(int item)
     {
         int next;
-        if (front == 1)
+        if (front == 0)
+        {
+            rear = 1;
+        }
+
+        if (front == 1 || front == 0)
         {
             next = length;
         }
         else
         {
-            if (front == length || front == 0)
-            {
-                next = 1;
-            }
-            else
-            {
-                next = front - 1;
-            }
+
+            next = front - 1;
         }
 
         if (next == rear)
@@ -96,25 +95,29 @@ public:
             cout << "\tQueue is Empty\t\n";
         }
         else
-        {   
+        {
             int item = DQ[rear];
             if (rear == front)
             {
                 front = rear = 0;
-            }else{
+            }
+            else
+            {
                 if (rear == length)
                 {
                     rear = 1;
-                }else if (rear == 1)
+                }
+                else if (rear == 1)
                 {
                     rear = length;
-                }else{
+                }
+                else
+                {
                     rear--;
-                }   
+                }
             }
 
             cout << "Item is\t" << item << endl;
-            
         }
     }
 
